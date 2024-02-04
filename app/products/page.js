@@ -16,7 +16,7 @@ export default function ProductPage() {
       <div>This is my Product page. This is really cool!</div>
       {products.map((product) => {
         return (
-          <div key={`products-${products.id}`}>
+          <div key={`products-${product.id}`}>
             <Link href={`/products/${product.id}`}>
               <h1>{product.name}</h1>
 
