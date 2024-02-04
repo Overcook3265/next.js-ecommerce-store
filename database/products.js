@@ -7,7 +7,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point of your fleeting existence, this product will do temporary wonders for that gnawing ache at your heart.",
-    price: 2500000000,
+    price: 2.5,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 10,
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 20,
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 50,
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 80,
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 190,
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 250,
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 500,
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 1500,
   },
   {
     id: 10,
@@ -79,7 +79,7 @@ const products = [
     subHeader: 'Buy yourself free with this amazing product',
     shortText:
       "If you've ever looked into the mirror and wondered what's the point, this product will bless you with just enough dopamine to keep you going until your next purchase!",
-    price: 2500000000,
+    price: 5,
   },
 ];
 
