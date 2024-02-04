@@ -15,7 +15,7 @@ export default function ProductPage(props) {
   console.log('Check: ', singleProduct);
 
   if (!singleProduct) {
-    return notFound();
+    notFound();
   }
 
   return (
