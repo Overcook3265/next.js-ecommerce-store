@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 // this is a router functionality to get access to commands like refresh etc.
 import { useState } from 'react';
@@ -7,6 +8,8 @@ export default function GenerateButton() {
   const [color, setColor] = useState('#123fee');
   const router = useRouter();
   // the useRouter hook gets connected to a variable to be called
+
+  console.log('Hello client');
 
   return (
     <button
