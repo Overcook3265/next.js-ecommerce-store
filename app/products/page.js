@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getProducts } from '../database/products';
+import { getProducts } from '../../database/products';
 
 export const metadata = {
   title: {

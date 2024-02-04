@@ -1,3 +1,5 @@
+import 'server-only';
+
 const products = [
   {
     id: 1,
