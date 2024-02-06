@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProducts } from '../../database/products';
+import { getProductsInsecure } from '../../database/products';
 
 export const metadata = {
   title: {
@@ -9,8 +9,11 @@ export const metadata = {
   description: 'Explore our selection of distinguished products',
 };
 
-export default function ProductPage() {
-  const products = getProducts();
+export default async function ProductPage() {
+  // const products = getProducts();
+
+  const products = await getProductsInsecure();
+
   return (
     <>
       <div>This is my Product page. This is really cool!</div>
