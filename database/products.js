@@ -1,4 +1,5 @@
 import 'server-only';
+import { cache } from 'react';
 import { sql } from './connect';
 
 // const products = [
@@ -97,7 +98,7 @@ import { sql } from './connect';
 //   return products;
 // }
 
-export async function getProductsInsecure() {
+export const getProductsInsecure = cache(async () => {
   const products = await sql`
   SELECT
   *
@@ -106,7 +107,7 @@ export async function getProductsInsecure() {
   `;
 
   return products;
-}
+});
 
 export function getProduct(id) {
   return products.find((product) => product.id === id);
