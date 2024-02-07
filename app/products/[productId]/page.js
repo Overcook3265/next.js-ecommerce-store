@@ -1,18 +1,19 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProduct } from '../../../database/products';
+import { getProductInsecure } from '../../../database/products';
 
-export function generateMetadata(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export async function generateMetadata(props) {
+  const singleProduct = await getProductInsecure(props.params.productId);
   return {
-    title: singleProduct?.name,
+    title: singleProduct?.name || '',
   };
 }
 
-export default function ProductPage(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export default async function ProductPage(props) {
+  const singleProduct = await getProductInsecure(props.params.productId);
   // console.log('Check: ', getProduct(props.params.productId));
-  console.log('Check: ', singleProduct);
+
+  // console.log(singleProduct);
 
   if (!singleProduct) {
     notFound();

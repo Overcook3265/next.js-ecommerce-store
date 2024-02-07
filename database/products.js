@@ -109,6 +109,18 @@ export const getProductsInsecure = cache(async () => {
   return products;
 });
 
-export function getProduct(id) {
-  return products.find((product) => product.id === id);
-}
+export const getProductInsecure = cache(async (id) => {
+  const [animal] = await sql`
+  SELECT
+  *
+  FROM
+  products
+  WHERE id = ${id}
+`;
+
+  return animal;
+});
+
+// export function getProduct(id) {
+//   return products.find((product) => product.id === id);
+// }
