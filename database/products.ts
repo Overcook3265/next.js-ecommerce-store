@@ -98,8 +98,16 @@ import { sql } from './connect';
 //   return products;
 // }
 
+type Product = {
+  id: number;
+  name: string;
+  subHeader: string;
+  shortText: string;
+  price: bigint;
+};
+
 export const getProductsInsecure = cache(async () => {
-  const products = await sql`
+  const products = await sql<Product[]>`
   SELECT
   *
   FROM
@@ -109,8 +117,8 @@ export const getProductsInsecure = cache(async () => {
   return products;
 });
 
-export const getProductInsecure = cache(async (id) => {
-  const [animal] = await sql`
+export const getProductInsecure = cache(async (id: number) => {
+  const [animal] = await sql<Product[]>`
   SELECT
   *
   FROM
