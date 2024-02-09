@@ -1,6 +1,7 @@
 import './globals.scss';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import CartHeaderButton from './CartHeaderButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
             <Link href="/">Home</Link>
             <Link href="/products">Products</Link>
             <Link href="/about">About</Link>
+            <CartHeaderButton />
           </nav>
         </header>
         <main>{children}</main>

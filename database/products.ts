@@ -118,7 +118,7 @@ export const getProductsInsecure = cache(async () => {
 });
 
 export const getProductInsecure = cache(async (id: number) => {
-  const [animal] = await sql<Product[]>`
+  const [product] = await sql<Product[]>`
   SELECT
   *
   FROM
@@ -126,7 +126,7 @@ export const getProductInsecure = cache(async (id: number) => {
   WHERE id = ${id}
 `;
 
-  return animal;
+  return product;
 });
 
 // export function getProduct(id) {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
-import BuyAmountButton from '../../BuyAmountButton';
+import BuyAmountButton from './BuyAmountButton';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProductInsecure(props.params.productId);
@@ -22,7 +22,6 @@ export default async function ProductPage(props) {
 
   return (
     <div>
-      Single animal page
       <h1>{singleProduct.name}</h1>
       <Image
         src={`/images/${singleProduct.name.toLowerCase()}.png`}
