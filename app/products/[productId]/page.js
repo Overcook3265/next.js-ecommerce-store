@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
+import BuyAmountButton from '../../BuyAmountButton';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProductInsecure(props.params.productId);
@@ -32,7 +33,11 @@ export default async function ProductPage(props) {
       <h2>{singleProduct.subHeader}</h2>
       <br />
       <h3>Price: {singleProduct.price} M.</h3>
+      <br />
       {singleProduct.shortText}
+      <br />
+      <br />
+      <BuyAmountButton />
     </div>
   );
 }
