@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import React from 'react';
+import styles from './CartHeaderButton.module.scss';
 
 const CartButton = React.forwardRef(({ onClick, href }, ref) => {
   return (
-    <a href="/cart" onClick={onClick} ref={ref}>
+    <button
+      href="/cart"
+      onClick={onClick}
+      ref={ref}
+      className={styles.cartHeaderButton}
+    >
       Your Cart
-    </a>
+    </button>
   );
 });
 

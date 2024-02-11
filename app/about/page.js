@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <div>This is my about page.</div>;
+  return <div>What is this all about?</div>;
 }

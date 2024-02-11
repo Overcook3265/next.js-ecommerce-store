@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
+import { createOrUpdateCookie } from './actions';
 
-export default function BuyAmountButton() {
+export default function BuyAmountButton(props) {
   // import { useState } from 'react';
   // import { useValue } from 'react';
   const [itemAmount, setItemAmount] = useState(1);
@@ -16,7 +17,12 @@ export default function BuyAmountButton() {
       />
       <label htmlFor="amountInput">Product amount chosen</label>
       <br />
-      <button data-test-id="product-add-to-cart">
+      <button
+        formAction={async () =>
+          await createOrUpdateCookie(props.singleProductId, itemAmount)
+        }
+        data-test-id="product-add-to-cart"
+      >
         Add to portfolio basket
       </button>
     </form>

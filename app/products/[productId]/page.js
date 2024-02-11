@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
+// import styles from '../../page.module.scss';
 import BuyAmountButton from './BuyAmountButton';
 
 export async function generateMetadata(props) {
@@ -21,7 +22,7 @@ export default async function ProductPage(props) {
   }
 
   return (
-    <div>
+    <main>
       <h1>{singleProduct.name}</h1>
       <Image
         src={`/images/${singleProduct.name.toLowerCase()}.png`}
@@ -31,12 +32,12 @@ export default async function ProductPage(props) {
       />
       <h2>{singleProduct.subHeader}</h2>
       <br />
-      <h3>Price: {singleProduct.price} M.</h3>
+      <h3>Price: {singleProduct.price}</h3>
       <br />
       {singleProduct.shortText}
       <br />
       <br />
-      <BuyAmountButton />
-    </div>
+      <BuyAmountButton singleProductId={singleProduct.id} />
+    </main>
   );
 }

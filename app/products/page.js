@@ -16,16 +16,16 @@ export default async function ProductPage() {
 
   return (
     <>
-      <div>This is my Product page. This is really cool!</div>
+      <h1>Admire our selection of Distinguished Products</h1>
       {products.map((product) => {
         return (
           <div key={`products-${product.id}`}>
             <Link href={`/products/${product.id}`}>
-              <h1>{product.name}</h1>
+              <h2>{product.name}</h2>
 
               <Image
                 src={`/images/${product.name}.png`}
-                alt={'Alt text'}
+                alt="Alt text"
                 width={400}
                 height={400}
               />
