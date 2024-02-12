@@ -12,8 +12,9 @@ export default function BuyAmountButton(props) {
         id="amountInput"
         value={itemAmount}
         placeholder="amount"
+        type="number"
         data-test-id="product-quantity"
-        onChange={(event) => setItemAmount(event.currentTarget.value)}
+        onChange={(event) => setItemAmount(Number(event.currentTarget.value))}
       />
       <label htmlFor="amountInput">Product amount chosen</label>
       <br />
