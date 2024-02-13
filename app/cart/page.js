@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { getProductsInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies.js';
+import DeleteButton from './DeleteButton';
 
 export const metadata = {
   title: {
@@ -9,23 +10,6 @@ export const metadata = {
   },
   description: 'The portfolio cart contains the products of choice',
 };
-
-// const idToUpdate = itemAmounts.find((itemAmount) => {
-//   return itemAmount.id === singleProductId;
-// });
-
-// if (cartItem) {
-//   return (
-//     <div key={`items-${product.id}`}>
-//       <h2>{product.name}</h2>
-//       <p>{product.subHeader}</p>
-//       <p>{product.shortText}</p>
-//       <p>Price: ${product.price}</p>
-//       <p>Quantity: {cartItem.itemAmount}</p>
-//     </div>
-//   );
-// }
-// return null;
 
 export default async function CartPage() {
   const products = await getProductsInsecure();
@@ -41,8 +25,19 @@ export default async function CartPage() {
   const filteredItems = productsInCart.filter(
     (product) => product.amount !== undefined,
   );
+  // Total Price calculation
 
-  console.log(filteredItems);
+  const priceArray = [];
+  // destructuring of array
+  for (const { price } of filteredItems) {
+    priceArray.push(Number(price));
+  }
+  const totalPrice = priceArray.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  console.log(cartItemCookie);
+
+  // console.log(filteredItems);
   return (
     <>
       <h1>This is the Cart Page.</h1>
@@ -55,18 +50,12 @@ export default async function CartPage() {
               <Link href={`/products/${product.id}`}>
                 {product.amount}x {product.name}: $ {product.price}
               </Link>
+              <DeleteButton singleProductId={product.id} />
             </div>
           );
         })}
       </div>
-
-      {/* {cartItemCookie.map((cartItem) => {
-        return (
-          <div key={`items-${cartItem.id}`}>
-            <div>{JSON.stringify(cartItem)}</div>
-          </div>
-        );
-      })} */}
+      <div>Total price: $ {totalPrice}</div>
     </>
   );
 }
