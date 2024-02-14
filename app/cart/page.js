@@ -12,6 +12,7 @@ export const metadata = {
 };
 
 export default async function CartPage() {
+  // load all products from database & get cookie
   const products = await getProductsInsecure();
   const items = getCookie('itemAmounts');
 
@@ -25,17 +26,17 @@ export default async function CartPage() {
   const filteredItems = productsInCart.filter(
     (product) => product.amount !== undefined,
   );
-  // Total Price calculation
 
+  // Total Price calculation
   const priceArray = [];
-  // destructuring of array
+  // destructuring of array, pushing price values into it
   for (const { price } of filteredItems) {
     priceArray.push(Number(price));
   }
+  // adding the content of the price values array
   const totalPrice = priceArray.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
-  console.log(cartItemCookie);
 
   // console.log(filteredItems);
   return (

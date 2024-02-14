@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
 // import styles from '../../page.module.scss';
+import { getCookie } from '../../../util/cookies.js';
 import BuyAmountButton from './BuyAmountButton';
 
 export async function generateMetadata(props) {
@@ -12,6 +13,12 @@ export async function generateMetadata(props) {
 }
 
 export default async function ProductPage(props) {
+  const items = getCookie('itemAmounts');
+
+  const cartItemCookie = !items ? [] : JSON.parse(items);
+
+  console.log(cartItemCookie);
+
   const singleProduct = await getProductInsecure(props.params.productId);
   // console.log('Check: ', getProduct(props.params.productId));
 

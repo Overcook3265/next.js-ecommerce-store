@@ -1,17 +1,14 @@
 'use client';
 import { useState } from 'react';
-import { createOrUpdateCookie } from '../products/[productId]/actions.js';
+import { deleteItem } from './actions.js';
 
 export default function DeleteButton(props) {
-  // import { useState } from 'react';
-  // import { useValue } from 'react';
+  // create undefined variable, replace itemAmount at product.id position with undefined
   const itemAmount = undefined;
   return (
     <form>
       <button
-        formAction={async () =>
-          await createOrUpdateCookie(props.singleProductId, itemAmount)
-        }
+        formAction={async () => await deleteItem(props.singleProductId)}
         data-test-id="product-add-to-cart"
       >
         Delete

@@ -1,0 +1,24 @@
+'use server';
+import { cookies } from 'next/headers';
+import { getCookie } from '../../util/cookies.js';
+
+export async function deleteItem(singleProductId) {
+  // 1. get current cookie
+  const itemCookie = getCookie('itemAmounts');
+
+  // 2. parse the cookie value
+  // Case A: cookie is undefined
+  const itemAmounts = !itemCookie ? [] : JSON.parse(itemCookie);
+
+  // 3. edit the cookie value
+  const idToUpdate = itemAmounts.find((item) => {
+    return item.id === singleProductId;
+  });
+
+  const deletedArray = itemAmounts.filter((id) => {
+    return id !== idToUpdate;
+  });
+
+  // 4. we override the cookie
+  await cookies().set('itemAmounts', JSON.stringify(deletedArray));
+}

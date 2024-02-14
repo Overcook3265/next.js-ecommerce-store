@@ -1,11 +1,13 @@
 'use client';
 import { useState } from 'react';
+// import { getCookie } from '../../../util/cookies.js';
 import { createOrUpdateCookie } from './actions';
 
 export default function BuyAmountButton(props) {
   // import { useState } from 'react';
   // import { useValue } from 'react';
   const [itemAmount, setItemAmount] = useState(1);
+  // const itemsInCart = getCookie('itemAmounts');
   return (
     <form>
       <input
