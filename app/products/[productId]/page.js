@@ -17,9 +17,15 @@ export default async function ProductPage(props) {
 
   const cartItemCookie = !items ? [] : JSON.parse(items);
 
-  console.log(cartItemCookie);
-
   const singleProduct = await getProductInsecure(props.params.productId);
+
+  const currentItem = cartItemCookie.find(
+    (item) => item.id === singleProduct.id,
+  );
+
+  const currentItemAmount = currentItem?.itemAmount;
+  // console.log(currentItem?.itemAmount);
+
   // console.log('Check: ', getProduct(props.params.productId));
 
   // console.log(singleProduct);
@@ -44,7 +50,10 @@ export default async function ProductPage(props) {
       {singleProduct.shortText}
       <br />
       <br />
-      <BuyAmountButton singleProductId={singleProduct.id} />
+      <BuyAmountButton
+        singleProductId={singleProduct.id}
+        currentItemAmount={currentItemAmount}
+      />
     </main>
   );
 }

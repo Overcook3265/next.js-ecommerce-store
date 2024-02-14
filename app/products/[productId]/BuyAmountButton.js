@@ -21,9 +21,20 @@ export default function BuyAmountButton(props) {
       <label htmlFor="amountInput">Product amount chosen</label>
       <br />
       <button
-        formAction={async () =>
-          await createOrUpdateCookie(props.singleProductId, itemAmount)
-        }
+        // here it takes the
+        // formAction={async () =>
+        //   await createOrUpdateCookie(
+        //     props.singleProductId,
+        //     itemAmount + props.currentItemAmount,
+        //   )
+        // }
+        formAction={async () => {
+          let updatedAmount = itemAmount;
+          if (props.currentItemAmount !== undefined) {
+            updatedAmount += props.currentItemAmount;
+          }
+          await createOrUpdateCookie(props.singleProductId, updatedAmount);
+        }}
         data-test-id="product-add-to-cart"
       >
         Add to portfolio basket

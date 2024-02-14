@@ -11,10 +11,12 @@ export async function deleteItem(singleProductId) {
   const itemAmounts = !itemCookie ? [] : JSON.parse(itemCookie);
 
   // 3. edit the cookie value
+  // Find item with the same ID
   const idToUpdate = itemAmounts.find((item) => {
     return item.id === singleProductId;
   });
 
+  // return everything except the matching ID
   const deletedArray = itemAmounts.filter((id) => {
     return id !== idToUpdate;
   });
