@@ -21,7 +21,7 @@ export default function BuyAmountButton(props) {
       <label htmlFor="amountInput">Product amount chosen</label>
       <br />
       <button
-        // here it takes the
+        // here is a version that was buggy, didn't work with products that were not in the cart yet
         // formAction={async () =>
         //   await createOrUpdateCookie(
         //     props.singleProductId,
