@@ -38,6 +38,7 @@ export default async function ProductPage(props) {
     <main>
       <h1>{singleProduct.name}</h1>
       <Image
+        data-test-id="product-image"
         src={`/images/${singleProduct.name.toLowerCase()}.png`}
         alt={singleProduct.name}
         width={300}
@@ -45,7 +46,9 @@ export default async function ProductPage(props) {
       />
       <h2>{singleProduct.subHeader}</h2>
       <br />
-      <h3>Price: {singleProduct.price}</h3>
+      <h3>
+        Price: <span data-test-id="product-price">{singleProduct.price}</span>
+      </h3>
       <br />
       {singleProduct.shortText}
       <br />

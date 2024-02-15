@@ -53,9 +53,9 @@ export default async function CartPage() {
               key={`items-${product.id}`}
             >
               <Link href={`/products/${product.id}`}>
-                <div data-test-id="cart-product-quantity-<product id>">
+                <span data-test-id="cart-product-quantity-<product id>">
                   {product.amount}
-                </div>{' '}
+                </span>{' '}
                 x {product.name}: $ {product.price * product.amount}
               </Link>
               <DeleteButton singleProductId={product.id} />

@@ -1,3 +1,6 @@
+import CheckoutInput from './CheckoutInput';
+import OrderConfirmButton from './OrderConfirmButton';
+
 export const metadata = {
   title: {
     default: 'Checkout',
@@ -6,5 +9,11 @@ export const metadata = {
 };
 
 export default function CheckoutPage() {
-  return <div>Check this **** out:</div>;
+  return (
+    <>
+      <div>Check this **** out:</div>
+      <CheckoutInput />
+      <OrderConfirmButton />
+    </>
+  );
 }

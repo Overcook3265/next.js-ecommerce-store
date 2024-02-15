@@ -20,7 +20,10 @@ export default async function ProductPage() {
       {products.map((product) => {
         return (
           <div key={`products-${product.id}`}>
-            <Link href={`/products/${product.id}`}>
+            <Link
+              data-test-id="product-<product id>"
+              href={`/products/${product.id}`}
+            >
               <h2>{product.name}</h2>
 
               <Image

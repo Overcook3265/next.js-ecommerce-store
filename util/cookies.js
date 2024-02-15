@@ -10,3 +10,12 @@ export function getCookie(name) {
   // return cookie.value;
   return cookies().get(name)?.value;
 }
+
+export function deleteCookie(name) {
+  // const cookie = cookies().get(name);
+  // if (!cookie) {
+  //   return undefined;
+  // }
+  // return cookie.value;
+  return cookies().delete(name);
+}
