@@ -15,6 +15,7 @@ export default function BuyAmountButton(props) {
         value={itemAmount}
         placeholder="amount"
         type="number"
+        min={0}
         data-test-id="product-quantity"
         onChange={(event) => setItemAmount(Number(event.currentTarget.value))}
       />

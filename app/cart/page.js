@@ -30,9 +30,10 @@ export default async function CartPage() {
   // Total Price calculation
   const priceArray = [];
   // destructuring of array, pushing price values into it
-  for (const { price } of filteredItems) {
-    priceArray.push(Number(price));
+  for (const { price, amount } of filteredItems) {
+    priceArray.push(Number(price) * Number(amount));
   }
+  console.log(priceArray);
   // adding the content of the price values array
   const totalPrice = priceArray.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
@@ -43,13 +44,13 @@ export default async function CartPage() {
     <>
       <h1>This is the Cart Page.</h1>
       <br />
-      <div>Admire its glorious emptiness.</div>
       <div>
         {filteredItems.map((product) => {
           return (
             <div key={`items-${product.id}`}>
               <Link href={`/products/${product.id}`}>
-                {product.amount}x {product.name}: $ {product.price}
+                {product.amount}x {product.name}: ${' '}
+                {product.price * product.amount}
               </Link>
               <DeleteButton singleProductId={product.id} />
             </div>
