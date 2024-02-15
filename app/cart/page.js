@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { getProductsInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies.js';
+import CheckoutButton from './CheckoutButton';
 import DeleteButton from './DeleteButton';
 
 export const metadata = {
@@ -47,17 +48,24 @@ export default async function CartPage() {
       <div>
         {filteredItems.map((product) => {
           return (
-            <div key={`items-${product.id}`}>
+            <div
+              data-test-id="cart-product-<product id>"
+              key={`items-${product.id}`}
+            >
               <Link href={`/products/${product.id}`}>
-                {product.amount}x {product.name}: ${' '}
-                {product.price * product.amount}
+                <div data-test-id="cart-product-quantity-<product id>">
+                  {product.amount}
+                </div>{' '}
+                x {product.name}: $ {product.price * product.amount}
               </Link>
               <DeleteButton singleProductId={product.id} />
             </div>
           );
         })}
       </div>
-      <div>Total price: $ {totalPrice}</div>
+      <div data-test-id="cart-total">Total price: $ {totalPrice}</div>
+      <br />
+      <CheckoutButton />
     </>
   );
 }

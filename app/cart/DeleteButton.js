@@ -9,7 +9,7 @@ export default function DeleteButton(props) {
     <form>
       <button
         formAction={async () => await deleteItem(props.singleProductId)}
-        data-test-id="product-add-to-cart"
+        data-test-id="cart-product-remove-<product id>"
       >
         Delete
       </button>
