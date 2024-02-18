@@ -1,3 +1,11 @@
+:root {
+  --color-background: rgb(250, 244, 240);
+  --color-rose: rgb(162, 103, 105);
+  --color-sage: rgb(176, 173, 134);
+  --color-black: rgb(14, 15, 25);
+  --color-green: rgb(41, 77, 74);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +14,7 @@
 .wrapper {
   position: relative;
   min-height: 100vh;
-  background-color: rgb(182, 226, 255);
+  background-color: var(--color-background);
 }
 
 button {
@@ -17,20 +25,26 @@ button {
 }
 
 nav {
+  color: var(--color-sage);
   width: 100vw;
   height: 4rem;
-  background-color: rgb(152, 255, 250);
+  background-color: var(--color-green);
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+main {
+  padding-bottom: 2.5rem;
+}
+
 footer {
+  color: var(--color-sage);
   width: 100vw;
   height: 4rem;
   position: absolute;
   bottom: 0;
-  background-color: rgb(152, 255, 250);
+  background-color: var(--color-green);
   display: flex;
   justify-content: space-around;
   align-items: center;

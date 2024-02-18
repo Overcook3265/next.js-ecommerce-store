@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import { deleteAll } from './actions';
@@ -6,9 +7,7 @@ import { deleteAll } from './actions';
 
 // import { deleteCookie } from './actions';
 
-const OrderConfirmButton = React.forwardRef(({ onClick }, ref) => {
-
-
+const ConfirmButton = React.forwardRef(({ onClick }, ref) => {
   return (
     <button href="/thankyou" onClick={onClick} ref={ref}>
       Confirm Order
@@ -16,12 +15,13 @@ const OrderConfirmButton = React.forwardRef(({ onClick }, ref) => {
   );
 });
 
-function CartHeaderButton() {
+function OrderConfirmButton() {
   return (
-    <Link href="/thankyou" passHref legacyBehavior>
-      <OrderConfirmButton />
+    <Link href="/thankyou" passHref onClick={async () => await deleteAll()}>
+      <ConfirmButton />
     </Link>
   );
 }
 
-export default CartHeaderButton;
+export default OrderConfirmButton;
+// onChange={(event) => setFirstName(event.currentTarget.value)}

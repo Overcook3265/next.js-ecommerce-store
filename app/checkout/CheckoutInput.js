@@ -1,5 +1,8 @@
 'use client';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { deleteAll } from './actions';
 
 export default function CheckoutInput() {
   const [firstName, setFirstName] = useState();
@@ -13,15 +16,23 @@ export default function CheckoutInput() {
   const [expiration, setExpiration] = useState();
   const [security, setSecurity] = useState();
 
+  const router = useRouter();
+
+  //   return (
+
+  //   )
+  // }
+  const handleClick = async () => await console.log(deleteAll());
+
   return (
-    <form>
+    <form onSubmit={handleClick} id="submitForm">
       <input
         id="firstName"
         value={firstName}
         placeholder="First Name"
         data-test-id="checkout-first-name"
         onChange={(event) => setFirstName(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="firstName">First Name</label>
       <br />
@@ -31,7 +42,7 @@ export default function CheckoutInput() {
         placeholder="Last Name"
         data-test-id="checkout-last-name"
         onChange={(event) => setLastName(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="lastName">Last Name</label>
       <br />
@@ -42,7 +53,7 @@ export default function CheckoutInput() {
         placeholder="example@domain.com"
         data-test-id="checkout-email"
         onChange={(event) => setEmail(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="email">E-mail address</label>
       <br />
@@ -52,7 +63,7 @@ export default function CheckoutInput() {
         placeholder="Address"
         data-test-id="checkout-address"
         onChange={(event) => setAddress(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="address">Address</label>
       <br />
@@ -62,7 +73,7 @@ export default function CheckoutInput() {
         placeholder="City"
         data-test-id="checkout-city"
         onChange={(event) => setCity(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="city">City</label>
       <br />
@@ -72,7 +83,7 @@ export default function CheckoutInput() {
         placeholder="Postal Code"
         data-test-id="checkout-postal-code"
         onChange={(event) => setPostal(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="postal">Postal Code</label>
       <br />
@@ -82,7 +93,7 @@ export default function CheckoutInput() {
         placeholder="Country"
         data-test-id="checkout-country"
         onChange={(event) => setCountry(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="country">Country</label>
       <br />
@@ -92,7 +103,7 @@ export default function CheckoutInput() {
         placeholder="xxxx xxxx xxxx xxxx"
         data-test-id="checkout-credit-card"
         onChange={(event) => setCreditCard(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="creditCard">Credit Card</label>
       <br />
@@ -102,7 +113,7 @@ export default function CheckoutInput() {
         placeholder="MM/YY"
         data-test-id="checkout-expiration-date"
         onChange={(event) => setExpiration(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="expiration">Expiration Date</label>
       <br />
@@ -112,9 +123,16 @@ export default function CheckoutInput() {
         placeholder="123"
         data-test-id="checkout-security-code"
         onChange={(event) => setSecurity(event.currentTarget.value)}
-        required
+        // required
       />
       <label htmlFor="security">Security Code</label>
+      <button
+        form="submitForm"
+        type="button"
+        onClick={() => router.push('/thankyou')}
+      >
+        Submit form
+      </button>
     </form>
   );
 }

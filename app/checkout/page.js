@@ -1,3 +1,4 @@
+import { deleteAll } from './actions';
 import CheckoutInput from './CheckoutInput';
 import OrderConfirmButton from './OrderConfirmButton';
 
@@ -9,11 +10,12 @@ export const metadata = {
 };
 
 export default function CheckoutPage() {
+  // await deleteAll();
   return (
     <>
       <div>Check this **** out:</div>
       <CheckoutInput />
-      <OrderConfirmButton />
+      {/* <OrderConfirmButton /> */}
     </>
   );
 }

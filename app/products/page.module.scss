@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.main > * {
+  padding: 0.5rem;
+}
+
+.imgContainer {
+  width: 400px;
+  height: 400px;
+  border-style: dotted;
+  border-color: black;
+  object-fit: contain;
+  position: 'relative';
+}
+
+.image {
+  object-fit: contain;
+  position: 'relative';
+}
