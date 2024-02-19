@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../util/cookies.js';
 
 export async function deleteAll() {
+  console.log('test');
   //   // 1. get current cookie
   //   const itemCookie = getCookie('itemAmounts');
   //   await cookies().delete(itemCookie);
@@ -24,5 +25,4 @@ export async function deleteAll() {
 
   // 4. we override the cookie
   await cookies().set('itemAmounts', '');
-  console.log('tst');
 }

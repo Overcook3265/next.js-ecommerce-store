@@ -22,10 +22,10 @@ export default function CheckoutInput() {
 
   //   )
   // }
-  const handleClick = async () => await console.log(deleteAll());
-
+  // const handleClick = async () => await console.log(deleteAll());
+  // onSubmit={handleClick}
   return (
-    <form onSubmit={handleClick} id="submitForm">
+    <form id="submitForm">
       <input
         id="firstName"
         value={firstName}
@@ -127,9 +127,12 @@ export default function CheckoutInput() {
       />
       <label htmlFor="security">Security Code</label>
       <button
-        form="submitForm"
-        type="button"
-        onClick={() => router.push('/thankyou')}
+        formAction={async () => {
+          // first delete the cookies
+          await deleteAll();
+          // then link to the next site
+          router.push('/thankyou');
+        }}
       >
         Submit form
       </button>
